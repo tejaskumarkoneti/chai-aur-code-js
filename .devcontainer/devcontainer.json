@@ -7,7 +7,7 @@
     "ghcr.io/devcontainers/features/python:1": {}
   },
 
-  "postCreateCommand": "python3 -m venv .venv && . .venv/bin/activate && pip install jupyter notebook jupyterlab ipykernel && npm install -g ijavascript && ~/.npm-global/bin/ijsinstall || ijsinstall",
+  "postCreateCommand": "python3 -m venv .venv && . .venv/bin/activate && pip install jupyter notebook jupyterlab ipykernel && npm install -g ijavascript && mkdir -p ~/.local/share/jupyter/kernels/javascript && printf '{\n  \"argv\": [\n    \"node\",\n    \"/usr/local/share/npm-global/lib/node_modules/ijavascript/lib/kernel.js\",\n    \"{connection_file}\"\n  ],\n  \"display_name\": \"JavaScript (Node.js)\",\n  \"language\": \"javascript\"\n}' > ~/.local/share/jupyter/kernels/javascript/kernel.json",
 
   "customizations": {
     "vscode": {
